@@ -17,7 +17,7 @@ class CreateInstitucionsTable extends Migration
             $table->increments('id');
             $table->integer('usuario_id')->unsigned();
             $table->string('nombre');
-            $table->string('');
+            $table->string('asdasd');
             $table->timestamps();
         });
     }
