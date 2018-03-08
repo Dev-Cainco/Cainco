@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->integer('telefono');
             $table->string('password');
-            $tabla->string('imagen');
+            $table->string('imagen');
             $table->timestamps();
         
         $table->foreign('carrera_id')->references('id')->on('carreras');

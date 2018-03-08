@@ -25,7 +25,7 @@ class CreatePasantesTable extends Migration
             $table->enum('turno', ['Mañana','Tarde','Completo']);
             $table->string('email');
             $table->integer('telefono');
-            $tabla->string('imagen');
+            $table->string('imagen');
             $table->date('fecha_inicio');
             $table->time('total_horas');
             $table->timestamps();

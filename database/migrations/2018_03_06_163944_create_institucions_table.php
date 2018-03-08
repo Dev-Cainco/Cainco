@@ -17,8 +17,15 @@ class CreateInstitucionsTable extends Migration
             $table->increments('id');
             $table->integer('usuario_id')->unsigned();
             $table->string('nombre');
-            $table->string('asdasd');
+            $table->string('descripcion');
+            $table->string('direccion');
+            $table->string('telefono');
+            $table->string('email');
+            $table->string('logo');
+            $table->string('vision');
             $table->timestamps();
+
+            $table->foreign('usuario_id')->references('id')->on('users');
         });
     }
 
