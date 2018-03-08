@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('imagen');
             $table->timestamps();
-        
+            $table->rememberToken();
         $table->foreign('carrera_id')->references('id')->on('carreras');
         });
     }

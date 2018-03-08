@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Carrera;
-class carreras extends Seeder
+class SeedCarreras extends Seeder
 {
     /**
      * Run the database seeds.
@@ -26,7 +26,6 @@ class carreras extends Seeder
                   "nombre"=>"psicologia",
         	],
     	); 
-        Carreras::insert($datos);
+        Carrera::insert($datos);
     }
-
 }
