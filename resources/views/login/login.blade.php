@@ -33,22 +33,22 @@
 
 	  <div id="login-page">
 	  	<div class="container">
-	  	
-		      <form class="form-login" action="index.html">
+            {{Form::open(['route'=>'logueo','class'=>'form-login','method'=>'POST'])}}
 		        <h2 class="form-login-heading">Entra Ahora</h2>
 		        <div class="login-wrap">
-		            <input type="text" class="form-control" placeholder="Correo" autofocus>
-		            <br>
-		            <input type="password" class="form-control" placeholder="Contraseña">
+                    {{Form::email('email',null,['class'=>'form-control','placeholder'=>'Correo','autofocus','require'])}}
+                    <br>
+                    {{Form::password('password',['class'=>'form-control','placeholder'=>'Correo','autofocus','require'])}}
 		            <label class="checkbox">
 		                <span class="pull-right">
 		                    <a data-toggle="modal" href="login.html#myModal"> Olvidaste tu Contraseña?</a>
 		
 		                </span>
 		            </label>
-		            <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
+		            <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> Entrar</button>
 		        </div>
-		
+            {{Form::close()}}
+            
 		          <!-- Modal -->
 		          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
 		              <div class="modal-dialog">
@@ -59,7 +59,7 @@
 		                      </div>
 		                      <div class="modal-body">
 		                          <p>Coloca tu contraseña y te enviaremos un correo para resetear los datos.</p>
-		                          <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+		                          <input type="text" name="email" placeholder="Correo" autocomplete="off" class="form-control placeholder-no-fix">
 		
 		                      </div>
 		                      <div class="modal-footer">
@@ -71,8 +71,7 @@
 		          </div>
 		          <!-- modal -->
 		
-		      </form>	  	
-	  	
+		     
 	  	</div>
 	  </div>
 
