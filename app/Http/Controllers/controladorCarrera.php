@@ -23,7 +23,7 @@ class controladorCarrera extends Controller
      */
     public function create()
     {
-        return view() 
+        return view('panel.carrera.create'); 
     }
 
     /**
