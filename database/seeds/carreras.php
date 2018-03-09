@@ -14,7 +14,7 @@ class carreras extends Seeder
         $datos=array
         (
         	[
-        		"nombre"=>"ingenieria comercial",
+                "nombre"=>"ingenieria comercial",
         	],
         	[
                   "nombre"=>"ingeniria en sistemas",

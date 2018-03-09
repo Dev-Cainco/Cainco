@@ -35,7 +35,7 @@
 	  	<div class="container">
             {{Form::open(['route'=>'logueo','class'=>'form-login','method'=>'POST'])}}
 		        <h2 class="form-login-heading">Entra Ahora</h2>
-		        <div class="login-wrap">
+		        <div class="login-wrap">             
                     {{Form::email('email',null,['class'=>'form-control','placeholder'=>'Correo','autofocus','require'])}}
                     <br>
                     {{Form::password('password',['class'=>'form-control','placeholder'=>'Correo','autofocus','require'])}}
