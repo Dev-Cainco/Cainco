@@ -1,5 +1,6 @@
+@extends('panel.template')
+@section('contenido')
 <h3><i class="fa fa-angle-right"></i> Form Components</h3>
-
 <!-- BASIC FORM ELELEMNTS -->
 <div class="row mt">
 	<div class="col-lg-12">
@@ -11,5 +12,5 @@
       </div>
 	</div><!-- col-lg-12-->      	
 </div><!-- /row -->
-          	
+@stop          	
        
