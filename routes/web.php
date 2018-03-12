@@ -1,4 +1,5 @@
 <?php
+Route::resource('panel/usuarios','controladorUsuario');
 Route::resource('panel/carreras','controladorCarrera');
 Route::get('/panel','controladorPanel@inicio')->name('panel');
 //Ruta Login
