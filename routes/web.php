@@ -1,9 +1,6 @@
 <?php
-<<<<<<< HEAD
 Route::resource('panel/universidad','controllerUniversidad');
-=======
 Route::resource('panel/usuarios','controladorUsuario');
->>>>>>> origen/master
 Route::resource('panel/carreras','controladorCarrera');
 Route::get('/panel','controladorPanel@inicio')->name('panel');
 //Ruta Login
