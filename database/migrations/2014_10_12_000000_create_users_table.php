@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('imagen');
             $table->timestamps();
             $table->rememberToken();
+            $table->SoftDeletes();
         $table->foreign('carrera_id')->references('id')->on('carreras');
         });
     }

@@ -29,7 +29,7 @@ class CreatePasantesTable extends Migration
             $table->date('fecha_inicio');
             $table->time('total_horas');
             $table->timestamps();
-
+            $table->SoftDeletes();
             $table->foreign('universidad_id')->references('id')->on('universidads');
             $table->foreign('carrera_id')->references('id')->on('carreras');
         });
