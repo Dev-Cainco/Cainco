@@ -23,7 +23,7 @@ class controllerUniversidad extends Controller
      */
     public function create()
     {
-        //
+        return view('panel.universidad.create');
     }
 
     /**
@@ -56,7 +56,7 @@ class controllerUniversidad extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('panel.universidad.edit');
     }
 
     /**
