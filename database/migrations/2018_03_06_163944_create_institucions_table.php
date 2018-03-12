@@ -24,7 +24,7 @@ class CreateInstitucionsTable extends Migration
             $table->string('logo');
             $table->string('vision');
             $table->timestamps();
-
+            
             $table->foreign('usuario_id')->references('id')->on('users');
         });
     }
