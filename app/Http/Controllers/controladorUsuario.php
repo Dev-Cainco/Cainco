@@ -38,6 +38,7 @@ class controladorUsuario extends Controller
      */
     public function store(Request $request)
     {
+        
         User::create(
             [
                 'nombre'=>$request->nombre,

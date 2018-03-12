@@ -37,7 +37,7 @@
                                   <td>{{$usuario->carrera_id}}</td>
                                   <td>{{$usuario->turno}}</td>
                                   <td>{{$usuario->telefono}}</td>
-                                  <td width="50px"><img src="{{storage_path('public').'/'.$usuario->imagen}}" alt="" width="50px"></td> 
+                                  <td width="50px"><img src="{{public_path('local')}}/{{$usuario->imagen}}" alt="" width="50px"></td> 
                                   <td>{{$usuario->created_at}}</td>
                                   <td>
                                     {!!Form::open(['route'=>['usuarios.destroy', $usuario->id], 'method' => 'DELETE'])!!}
