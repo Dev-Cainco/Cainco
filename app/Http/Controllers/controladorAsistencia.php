@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use APP\Carrera;
-
-class controladorCarrera extends Controller
+use App\Asistencia;
+use App\User;
+class controladorAsistencia extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,9 +24,9 @@ class controladorCarrera extends Controller
      */
     public function create()
     {
-        
-       
-        return view('panel.carrera.create'); 
+        $asistencia=Asistencia::orderby 
+
+
     }
 
     /**
@@ -37,12 +37,7 @@ class controladorCarrera extends Controller
      */
     public function store(Request $request)
     {
-        Carrera::create(
-        [
-           
-           'nombre'=>$request->nombre;
-        ] );
-        return redirect()->route('panel')
+        //
     }
 
     /**
