@@ -1,6 +1,4 @@
-<div class="form-group">
-    <label class="col-sm-2 col-sm-2 control-label">Nombre</label>
-    <div class="col-sm-10">
-        <input type="text" name="nombre" class="form-control round-form">
-    </div>
+<div class="form-group col-xs-12 col-md-6">
+    <label class="control-label">Nombre</label>
+    	{{Form::text('nombre',null,['class'=>'form-control round-form','autofocus','requerid'])}}
 </div>

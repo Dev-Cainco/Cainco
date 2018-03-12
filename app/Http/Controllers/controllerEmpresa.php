@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Universidad;
+use App\Empresa;
+use App\Categoria;
+use App\Pago;
+use Auth;
 
-class controllerUniversidad extends Controller
+class controllerEmpresa extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +18,7 @@ class controllerUniversidad extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -25,7 +28,9 @@ class controllerUniversidad extends Controller
      */
     public function create()
     {   
-        return view('panel.universidad.create');
+        $categorias = Categoria::orderBy('id','desc')->pluck('nombre','id');
+        $pagos = Pago::orderBy('id','desc')->pluck('tipo_pago','id');
+        return view('panel.empresa.create',compact('categorias','pagos'));
     }
 
     /**
@@ -36,8 +41,17 @@ class controllerUniversidad extends Controller
      */
     public function store(Request $request)
     {
-        Universidad::create([
-            'nombre'=>$request->$nombre
+        Empresa::create([
+            'usuario_id'=>Auth::user()->id,
+            'nombre'=>$request->$nombre,
+            'categoria_id'=>$request->$categoria_id,
+            'pagos_id'=>$request->$pagos_id,
+            'email'=>$request->$email,
+            'descripcion'=>$request->$descripcion,
+            'password'=>$request->$password,
+            'direccion'=>$request->$direccion,
+            'sitio_web'=>$request->$sitio_web,
+            'imagen'=>$request->$imagen
         ]);
         return redirect()->route('panel');
     }
@@ -61,7 +75,7 @@ class controllerUniversidad extends Controller
      */
     public function edit($id)
     {
-        return view('panel.universidad.edit');
+        //
     }
 
     /**
