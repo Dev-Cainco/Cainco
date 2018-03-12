@@ -14,7 +14,8 @@ class controladorUsuario extends Controller
      */
     public function index()
     {
-        return view('');
+        $usuarios=User::orderBy('id','desc')->paginate(5);
+        return view('panel.usuario.index',compact('usuarios'));
     }
 
     /**
@@ -37,6 +38,7 @@ class controladorUsuario extends Controller
      */
     public function store(Request $request)
     {
+        
         User::create(
             [
                 'nombre'=>$request->nombre,
@@ -54,12 +56,6 @@ class controladorUsuario extends Controller
         return redirect()->route('panel');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
@@ -73,7 +69,9 @@ class controladorUsuario extends Controller
      */
     public function edit($id)
     {
-        //
+        $carreras=Carrera::orderBy('id','desc')->pluck('nombre','id');
+        $usuario=User::find($id);
+        return view('panel.usuario.editar',compact('usuario','carreras','turnos'));
     }
 
     /**
@@ -85,7 +83,23 @@ class controladorUsuario extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $usuario= User::find($id);
+        $usuario->fill(
+            [
+                'nombre'=>$request->nombre,
+                'apellidoP'=>$request->apellidoP,
+                'apellidoM'=>$request->apellidoM,
+                'ci'=>$request->ci,
+                'turno'=>$request->turno,
+                'email'=>$request->email,
+                'telefono'=>$request->telefono,
+                'password'=>$request->password,
+                'imagen'=>$request->imagen,
+                'carrera_id'=>$request->carrera,
+            ]
+        );
+        $usuario->save();
+        return redirect()->route('panel');
     }
 
     /**
@@ -96,6 +110,8 @@ class controladorUsuario extends Controller
      */
     public function destroy($id)
     {
-        //
+        $usuario= User::find($id);
+        $usuario->delete();
+        return redirect()->route('panel');
     }
 }

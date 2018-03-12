@@ -25,7 +25,7 @@
 <div class="form-group">
         <label class="col-sm-2 col-sm-2 control-label">Turno</label>
         <div class="col-sm-10">
-            {!!Form::select('turno', $turnos,null,['class' => 'form-control round-form'])!!}
+            {!!Form::select('turno', ['Mañana' => 'Mañana', 'Tarde' => 'Tarde','TurnoCompleto'=>'Turno Completo'],null,['class' => 'form-control round-form'])!!}
         </div>
 </div>
 <div class="form-group">
