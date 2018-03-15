@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use APP\Carrera;
 
-class controladorCarrera extends Controller
+class controladorCategoria extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class controladorCarrera extends Controller
      */
     public function index()
     {
-        return view('');
+        //
     }
 
     /**
@@ -24,11 +23,11 @@ class controladorCarrera extends Controller
      */
     public function create()
     {
-        
-       
-        return view('panel.carrera.create'); 
-    }
+        // $categoria=Categoria::orderBy('nombre','desc')->pluck('nombre');
+          //return view('panel.categoria.create',compact('categoria');
 
+            return view('panel.categoria.create'); 
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -37,7 +36,7 @@ class controladorCarrera extends Controller
      */
     public function store(Request $request)
     {
-    
+        //
     }
 
     /**
