@@ -53,7 +53,7 @@ class controladorUsuario extends Controller
                 'carrera_id'=>$request->carrera,
             ]
         );
-        return redirect()->route('panel');
+        return redirect()->route('usuarios.index');
     }
 
     public function show($id)
@@ -99,7 +99,7 @@ class controladorUsuario extends Controller
             ]
         );
         $usuario->save();
-        return redirect()->route('panel');
+        return redirect()->route('usuarios.index');
     }
 
     /**
@@ -112,6 +112,6 @@ class controladorUsuario extends Controller
     {
         $usuario= User::find($id);
         $usuario->delete();
-        return redirect()->route('panel');
+        return redirect()->route('usuarios.index');
     }
 }
