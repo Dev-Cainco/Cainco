@@ -18,7 +18,8 @@ class controllerEmpresa extends Controller
      */
     public function index()
     {
-        
+        $empresa = Empresa::orderBy('id','desc')->paginate('5');
+        return view('panel.empresa.index',compact('empresa'));
     }
 
     /**
@@ -40,20 +41,21 @@ class controllerEmpresa extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+       // dd($request->all());
         Empresa::create([
             'usuario_id'=>Auth::user()->id,
-            'nombre'=>$request->$nombre,
-            'categoria_id'=>$request->$categoria_id,
-            'pagos_id'=>$request->$pagos_id,
-            'email'=>$request->$email,
-            'descripcion'=>$request->$descripcion,
-            'password'=>$request->$password,
-            'direccion'=>$request->$direccion,
-            'sitio_web'=>$request->$sitio_web,
-            'imagen'=>$request->$imagen
+            'nombre'=>$request->nombre,
+            'categoria_id'=>$request->categoria_id,
+            'pagos_id'=>$request->pagos_id,
+            'email'=>$request->email,
+            'descripcion'=>$request->descripcion,
+            'password'=>$request->password,
+            'direccion'=>$request->direccion,
+            'sitio_web'=>$request->sitio_web,
+            'imagen'=>$request->imagen
         ]);
-        return redirect()->route('panel');
+        return redirect()->route('empresa.index');
     }
 
     /**
@@ -74,8 +76,11 @@ class controllerEmpresa extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
+        $categorias = Categoria::orderBy('id','desc')->pluck('nombre','id');
+        $pagos = Pago::orderBy('id','desc')->pluck('tipo_pago','id');
+        $empresa = Empresa::find($id);
+        return view('panel.empresa.edit',compact('categorias','pagos','empresa'));
     }
 
     /**
@@ -86,8 +91,18 @@ class controllerEmpresa extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+        $empresa = Empresa::find($id);
+        $empresa->fill([
+            'nombre'=>$request->nombre,
+            'email'=>$request->email,
+            'descripcion'=>$request->descripcion,
+            'password'=>$request->password,
+            'direccion'=>$request->direccion,
+            'imagen'=>$request->imagen,
+            'sitio_web'=>$request->sitio_web
+        ]);
+        return redirect()->route('empresa.index');
     }
 
     /**

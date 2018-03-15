@@ -1,14 +1,14 @@
 <div class="form-group col-xs-12 col-md-6">
-    <label class="control-label">Nombre</label>
+    <label>Nombre</label>
     {{Form::text('nombre',null,['class'=>'form-control round-form','autofocus','requerid'])}}
 </div>
 <div class="form-group col-xs-12 col-md-6">
-    <label class="control-label">Categoria</label>	
+    <label>Categoria</label>	
 	{{Form::select('categoria_id',$categorias,null,['class'=>'form-control round-form','requerid'])}}	
 </div>
 <div class="form-group col-xs-12 col-md-6">
     <label class="control-label">Tipo de Pago</label>	
-	{{Form::select('pago_id',$pagos,null,['class'=>'form-control round-form','requerid'])}}	
+	{{Form::select('pagos_id',$pagos,null,['class'=>'form-control round-form','requerid'])}}	
 </div>
 <div class="form-group col-xs-12 col-md-6">
     <label class="control-label">Email</label>

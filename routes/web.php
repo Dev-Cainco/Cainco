@@ -1,4 +1,5 @@
 <?php
+Route::resource('panel/pasantes','controllerPasantes');
 Route::resource('panel/empresa','controllerEmpresa');
 Route::resource('panel/universidad','controllerUniversidad');
 Route::resource('panel/usuarios','controladorUsuario');
