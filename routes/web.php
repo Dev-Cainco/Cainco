@@ -9,4 +9,3 @@ Route::get('/panel','controladorPanel@inicio')->name('panel');
 Route::get('/login','controladorLogin@inicio')->name('login-inicio');
 Route::post('logueo','controladorLogin@logueo')->name('logueo');
 Route::get('logout','controladorLogin@logout')->name('logout');
-
