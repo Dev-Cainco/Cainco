@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Categoria;
 class controladorCategoria extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class controladorCategoria extends Controller
      */
     public function index()
     {
-        //
+         $categoria=Categoria::orderBy('id','desc')->paginate(5);
+        return view('panel.categoria.index',compact('categoria'));
     }
 
     /**
@@ -36,7 +37,15 @@ class controladorCategoria extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Categoria::create(
+            [
+                'nombre'=>$request->nombrer,
+
+            ]
+
+        );
+
+        return redirect()->route('categoria.index');
     }
 
     /**
@@ -58,7 +67,9 @@ class controladorCategoria extends Controller
      */
     public function edit($id)
     {
-        //
+     
+     return view('panel.categoria.edit',compact('nombre'));
+
     }
 
     /**
