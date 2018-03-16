@@ -67,8 +67,11 @@ class controladorCategoria extends Controller
      */
     public function edit($id)
     {
+      
+        $categoria=Categoria::find($id);
+        return view('panel.categoria.editar',compact('categoria'));
      
-     return view('panel.categoria.edit',compact('nombre'));
+     //return view('panel.categoria.edit',compact('nombre'));
 
     }
 
@@ -81,7 +84,15 @@ class controladorCategoria extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+      $categoria= Categoria::find($id);
+        $usuario->fill(
+            [
+                'nombre'=>$request->nombre,
+            ]
+        );
+        $categoria->save();
+        return redirect()->route('categoria.index');  
     }
 
     /**
@@ -92,6 +103,8 @@ class controladorCategoria extends Controller
      */
     public function destroy($id)
     {
-        //
+       $categoria= Categoria::find($id);
+        $categoria->delete();
+        return redirect()->route('categoria.index');
     }
 }
