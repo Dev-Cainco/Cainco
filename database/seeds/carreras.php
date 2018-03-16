@@ -26,7 +26,7 @@ class carreras extends Seeder
                   "nombre"=>"psicologia",
         	],
     	); 
-        Carreras::insert($datos);
+        Carrera::insert($datos);
     }
 
 }

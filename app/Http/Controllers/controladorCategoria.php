@@ -13,8 +13,8 @@ class controladorCategoria extends Controller
      */
     public function index()
     {
-         $categoria=Categoria::orderBy('id','desc')->paginate(5);
-        return view('panel.categoria.index',compact('categoria'));
+         $categorias=Categoria::orderBy('id','desc')->paginate(5);
+        return view('panel.categoria.index',compact('categorias'));
     }
 
     /**
@@ -39,7 +39,7 @@ class controladorCategoria extends Controller
     {
         Categoria::create(
             [
-                'nombre'=>$request->nombrer,
+                'nombre'=>$request->nombre,
 
             ]
 
@@ -69,7 +69,7 @@ class controladorCategoria extends Controller
     {
       
         $categoria=Categoria::find($id);
-        return view('panel.categoria.editar',compact('categoria'));
+        return view('panel.categoria.edit',compact('categoria'));
      
      //return view('panel.categoria.edit',compact('nombre'));
 
@@ -86,7 +86,7 @@ class controladorCategoria extends Controller
     {
         
       $categoria= Categoria::find($id);
-        $usuario->fill(
+        $categoria->fill(
             [
                 'nombre'=>$request->nombre,
             ]
