@@ -39,7 +39,7 @@ class controladorCategoria extends Controller
     {
         Categoria::create(
             [
-                'nombre'=>$request->nombrer,
+                'nombre'=>$request->nombre,
 
             ]
 
