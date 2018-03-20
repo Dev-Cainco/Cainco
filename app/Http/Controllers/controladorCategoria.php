@@ -13,8 +13,8 @@ class controladorCategoria extends Controller
      */
     public function index()
     {
-         $categoria=Categoria::orderBy('id','desc')->paginate(5);
-        return view('panel.categoria.index',compact('categoria'));
+         $categorias=Categoria::orderBy('id','desc')->paginate(5);
+        return view('panel.categoria.index',compact('categorias'));
     }
 
     /**

@@ -13,12 +13,11 @@
                                <tr>
                                   <th><i class="fa fa-edit"></i> Nombre</th>
                                   <th><i class="fa fa-edit"></i> Fecha Registro</th>
-                                    <th><i class="fa fa-edit"></i> Fecha Registro final</th>
                                   <th><i class="fa fa-edit"></i> Acciones</th>
                               </tr>
                               </thead>
                               <tbody>
-                              @foreach($categoria as $categoria)
+                              @foreach($categorias as $categoria)
                               <tr> 
                                   <td>{{$categoria->nombre}}</td> 
                                   <td>{{$categoria->created_at}}</td>
@@ -34,7 +33,7 @@
                               </tbody>
                           </table>
                       </div><!-- /content-panel -->
-                      <div class="text-center">{!!$categoria->render()!!}</div>
+                      <div class="text-center">{!!$categorias->render()!!}</div>
                   </div><!-- /col-md-12 -->
               </div><!-- /row -->
 @stop
