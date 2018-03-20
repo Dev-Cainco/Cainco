@@ -69,7 +69,7 @@ class controladorCategoria extends Controller
     {
       
         $categoria=Categoria::find($id);
-        return view('panel.categoria.editar',compact('categoria'));
+        return view('panel.categoria.edit',compact('categoria'));
      
      //return view('panel.categoria.edit',compact('nombre'));
 
@@ -86,7 +86,7 @@ class controladorCategoria extends Controller
     {
         
       $categoria= Categoria::find($id);
-        $usuario->fill(
+        $categoria->fill(
             [
                 'nombre'=>$request->nombre,
             ]
