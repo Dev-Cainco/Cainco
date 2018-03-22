@@ -15,7 +15,8 @@ class controllerUniversidad extends Controller
      */
     public function index()
     {
-        //
+        $universidad = Universidad::orderBy('id','desc')->paginate('5');
+        return view('panel.universidad.index',compact('universidad'));
     }
 
     /**
@@ -37,9 +38,9 @@ class controllerUniversidad extends Controller
     public function store(Request $request)
     {
         Universidad::create([
-            'nombre'=>$request->$nombre
+            'nombre'=>$request->nombre
         ]);
-        return redirect()->route('panel');
+        return redirect()->route('universidad.index');
     }
 
     /**
@@ -60,8 +61,9 @@ class controllerUniversidad extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        return view('panel.universidad.edit');
+    {   
+        $universidad = Universidad::find($id);
+        return view('panel.universidad.edit',compact('universidad'));
     }
 
     /**
@@ -73,7 +75,12 @@ class controllerUniversidad extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $universidad = Universidad::find($id);
+        $universidad->fill([
+            'nombre'=>$request->nombre
+        ]);
+        $universidad->save();
+        return redirect()->route('universidad.index');
     }
 
     /**

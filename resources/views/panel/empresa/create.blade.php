@@ -1,20 +1,19 @@
 @extends('panel.template')
 @section('contenido')
-<h3><i class="fa fa-angle-right"></i> Form Components</h3>
-<!-- BASIC FORM ELELEMNTS -->
-<div class="row mt">
-	<div class="col-lg-12">
-      <div class="form-panel">
-      	  <h4 class="mb"><i class="fa fa-angle-right"></i> Form Elements</h4>
-      	  {{Form::open(['route'=>'empresa.store','class'=>'form-horizontal style-form','method'=>'POST','files'=>true])}}
-              @include('panel.empresa.form.form')
-              <div class="form-group col-xs-12 col-md-6">
-              	<button type="button" class="btn btn-danger"><i class="fa fa-chevron-circle-left"></i> Cancelar</button>
-              	{{Form::submit('Registrar',['class'=>'btn btn-primary'])}}
-              </div>
-              <div class="form-group"></div>
-          {{Form::close()}}
-      </div>
-	</div><!-- col-lg-12-->      	
-</div><!-- /row -->
+<div class="box box-primary col-xs-12 col-md-12">
+    <!-- general form elements -->
+        <div class="box-header">
+            <h3 class="box-title">Agregar nueva empresa</h3>
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        {{Form::open(['route'=>'empresa.store','method'=>'POST','files'=>true])}} 
+        @include('panel.empresa.form.form')
+    <div class="box-footer col-md-12 text-center">
+        {{Form::submit('Guardar',['class'=>'btn btn-primary'])}}
+        <a href="{{route('empresa.index')}}">
+          <button type="button" class="btn btn-danger"><i class="fa fa-close"></i> Cancelar</button>
+        </a>
+    </div>
+    {{Form::close()}}
+</div>
 @stop

@@ -1,82 +1,71 @@
-
-        <div id="sidebar"  class="nav-collapse ">
-            <!-- sidebar menu start-->
-            <ul class="sidebar-menu" id="nav-accordion">
-            
-                  <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                  <h5 class="centered">Marcel Newman</h5>
-                      
-                <li class="mt">
-                    <a class="active" href="index.html">
-                        <i class="fa fa-dashboard"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:;" >
-                        <i class="fa fa-desktop"></i>
-                        <span>UI Elements</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a  href="general.html">General</a></li>
-                        <li><a  href="buttons.html">Buttons</a></li>
-                        <li><a  href="panels.html">Panels</a></li>
-                    </ul>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:;" >
-                        <i class="fa fa-cogs"></i>
-                        <span>Components</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a  href="calendar.html">Calendar</a></li>
-                        <li><a  href="gallery.html">Gallery</a></li>
-                        <li><a  href="todo_list.html">Todo List</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;" >
-                        <i class="fa fa-book"></i>
-                        <span>Extra Pages</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a  href="blank.html">Blank Page</a></li>
-                        <li><a  href="login.html">Login</a></li>
-                        <li><a  href="lock_screen.html">Lock Screen</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;" >
-                        <i class="fa fa-tasks"></i>
-                        <span>Forms</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a  href="form_component.html">Form Components</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;" >
-                        <i class="fa fa-th"></i>
-                        <span>Data Tables</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a  href="basic_table.html">Basic Table</a></li>
-                        <li><a  href="responsive_table.html">Responsive Table</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;" >
-                        <i class=" fa fa-bar-chart-o"></i>
-                        <span>Charts</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a  href="morris.html">Morris</a></li>
-                        <li><a  href="chartjs.html">Chartjs</a></li>
-                    </ul>
-                </li>
-
-            </ul>
-            <!-- sidebar menu end-->
+<!-- sidebar: style can be found in sidebar.less -->
+<section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+        <div class="pull-left image">
+            <img src="{{asset('img/avatar3.png')}}" class="img-circle" alt="User Image" />
         </div>
+        <div class="pull-left info">
+            <p>Hola!, Admin</p>
+
+            <a href="#"><i class="fa fa-circle text-success"></i> En Linea</a>
+        </div>
+    </div>
+    <!-- search form -->
+    <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Buscar..."/>
+            <span class="input-group-btn">
+                <button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <!-- /.search form -->
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+        <li class="active">
+            <a href="index.html">
+                <i class="fa fa-dashboard"></i> <span>Escritorio</span>
+            </a>
+        </li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-bar-chart-o"></i>
+                <span>Charts</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="empresa.html"><i class="fa fa-angle-double-right"></i> Empresas</a></li>
+                <li><a href="pages/charts/flot.html"><i class="fa fa-angle-double-right"></i> Flot</a></li>
+                <li><a href="pages/charts/inline.html"><i class="fa fa-angle-double-right"></i> Inline charts</a></li>
+            </ul>
+        </li>
+        <li class="">
+            <a href="{{route('usuarios.index')}}">
+                <i class="fa fa-dashboard"></i> <span>Usuarios</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="{{route('empresa.index')}}">
+                <i class="fa fa-dashboard"></i> <span>Empresa</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="{{route('pasantes.index')}}">
+                <i class="fa fa-dashboard"></i> <span>Pasantes</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="{{route('universidad.index')}}">
+                <i class="fa fa-dashboard"></i> <span>Universidad</span>
+            </a>
+        </li>
+        <li class="">
+            <a href="{{route('categorias.index')}}">
+                <i class="fa fa-dashboard"></i> <span>Categoria</span>
+            </a>
+        </li>
+    </ul>
+
+</section>
+<!-- /.sidebar -->

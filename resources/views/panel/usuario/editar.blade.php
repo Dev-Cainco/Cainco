@@ -1,28 +1,20 @@
 @extends('panel.template')
-@section("contenido")
-       <h3><i class="fa fa-angle-right"></i> Registro de Usuario</h3>
-       
-       <!-- BASIC FORM ELELEMNTS -->
-       <div class="row mt">
-           <div class="col-lg-12">
-           <div class="form-panel">
-                 <h4 class="mb"><i class="fa fa-angle-right"></i> Editar Usuario</h4>
-                 {!!Form::model($usuario, ['route' => ['usuarios.update', $usuario->id],'class'=>'form-horizontal style-form','method'=>'PUT','files'=>true])!!}
-                   @include("panel.usuario.form.form")
-                    <div class="form-group">       
-                    <div class="col-sm-12">                
-                       {!!Form::submit('Registrar',['class'=>'btn btn-theme btn-block'])!!}
-                      </div>
-                    </div>
-                    <div class="form-group">       
-                        <div class="col-sm-12 center-block">                
-                        <a href="" class="btn btn-primary btn-block " ><i class="fa fa-chevron-circle-left"></i> Regresar</a>
-                        </div>
-                    </div>
-                {!!Form::close()!!}
-           </div>
-           </div><!-- col-lg-12-->      	
-       </div><!-- /row -->
-       @stop
-       <!-- INLINE FORM ELELEMNTS -->
-       
+@section('contenido')
+<div class="box box-primary col-xs-12 col-md-12">
+    <!-- general form elements -->
+        <div class="box-header">
+            <h3 class="box-title">Editar Usuario</h3>
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        {{Form::model($usuario,['route'=> ['usuarios.update',$usuario->id],'method'=>'PUT','files'=>true])}} 
+        @include('panel.usuario.form.form')
+
+    <div class="box-footer col-md-12 text-center">
+      {{Form::submit('Guardar',['class'=>'btn btn-primary'])}}
+      <a href="{{route('usuarios.index')}}">
+        <button type="button" class="btn btn-danger"><i class="fa fa-close"></i> Cancelar</button>
+      </a>        
+    </div>
+    {{Form::close()}}
+</div>
+@stop
