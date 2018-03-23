@@ -24,8 +24,6 @@ class controladorAsistencia extends Controller
      */
     public function create()
     {
-        $asistencia=Asistencia::orderby 
-
 
     }
 

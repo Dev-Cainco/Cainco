@@ -8,6 +8,6 @@ class controladorPanel extends Controller
 {
     public function inicio()
     {
-        return view('panel.universidad.edit');
+        return view('panel.template');
     }
 }
