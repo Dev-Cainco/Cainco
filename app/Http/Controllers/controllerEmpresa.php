@@ -65,7 +65,7 @@ class controllerEmpresa extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {   
         //
     }
 
@@ -102,6 +102,7 @@ class controllerEmpresa extends Controller
             'imagen'=>$request->imagen,
             'sitio_web'=>$request->sitio_web
         ]);
+        $empresa->save();
         return redirect()->route('empresa.index');
     }
 
@@ -113,6 +114,19 @@ class controllerEmpresa extends Controller
      */
     public function destroy($id)
     {
-        //
+        $empresa = Empresa::find($id);
+        if($empresa->estado == 1)
+        {
+            $empresa->fill([
+                'estado'=>'0'
+            ]);
+            return redirect()->route('empresa.index');
+        }else
+        {
+            $empresa->fill([
+                'estado'=>'1'
+            ]);
+            return redirect()->route('empresa.index');
+        }
     }
 }

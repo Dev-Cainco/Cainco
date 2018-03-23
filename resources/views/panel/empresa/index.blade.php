@@ -34,9 +34,20 @@
                                 <td>{{$empresas->ciudad_id}}</td>
                                 <td><img src="{{asset('imagen')}}/{{$empresas->imagen}}" width="50px" height="50px"></td>
                                 <td>
-                                  {!!Form::open(['route'=>['empresa.destroy', $empresas->id], 'method' => 'DELETE'])!!}
+                                  <a href="" class="btn btn-warning"><i class="fa fa-eye"></i></a>
+                                  
                                   <a href="{{route('empresa.edit',$empresas->id)}}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
-                                  <button class="btn btn-success"><i class="fa fa-check"></i></button>
+                                  
+                                  @if(($empresas->estado) == '1')
+                                    <a href="{{route('empresa.destroy',$empresas->id)}}">
+                                    <button class="btn btn-success"><i class="fa fa-check"></i></button>
+                                    </a>
+                                  @else
+                                    <a href="{{route('empresa.destroy',$empresas->id)}}">
+                                    <button class="btn btn-danger"><i class="fa fa-check"></i></button>
+                                    </a>
+                                  @endif
+                                    
                                   {!!Form::close()!!}
                                 </td> 
                             </tr>                        
