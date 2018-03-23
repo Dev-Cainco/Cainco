@@ -3,25 +3,32 @@
                   @if(\Session::has('message'))
                       @include('alerts.message')
                   @endif  
-              <div class="row mt">
-                  <div class="col-md-12">
-                      <div class="content-panel">
-                          <table class="table table-striped table-advance table-hover">
-                            <h4 class="text-center"><i class="fa fa-user"></i>Lista de Empresas</h4>
-                            <hr>
-                              <thead>
+<section class="content">
+        <div class="col-xs-12">                            
+            <div class="box">
+                <div class="box-header">
+                    <h2 class="text-center">Lista de Pasantes</h2>
+                </div><!-- /.box-header -->
+                <div class="col-xs-12 col-md-6" style="padding-left: 920px;">
+                    <a href="{{route('pasantes.create')}}">
+                        <button type="button" class="btn btn-success"><i class="fa fa-plus"></i>  &nbsp;&nbsp;&nbsp;&nbsp; Agregar</button>
+                    </a>
+                </div><br><br><br>
+                <div class="box-body table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
                                <tr>
-                                  <th><i class="fa fa-edit"></i>Imagen</th>
-                                  <th><i class="fa fa-edit"></i>Nombre</th>
-                                  <th><i class="fa fa-edit"></i>Apellido</th>
-                                  <th><i class="fa fa-edit"></i>Universidad</th>
-                                  <th><i class="fa fa-edit"></i>Carrera</th>
-                                  <th><i class="fa fa-edit"></i>CI</th>
-                                  <th><i class="fa fa-edit"></i>Turno</th>
-                                  <th><i class="fa fa-edit"></i>Telefono</th>
-                                  <th><i class="fa fa-edit"></i>Fecha Inicio</th>
-                                  <th><i class="fa fa-edit"></i>Total Horas</th>
-                                  <th><i class="fa fa-edit"></i>Opciones</th>
+                                  <th>Imagen</th>
+                                  <th>Nombre</th>
+                                  <th>Apellido</th>
+                                  <th>Universidad</th>
+                                  <th>Carrera</th>
+                                  <th>CI</th>
+                                  <th>Turno</th>
+                                  <th>Telefono</th>
+                                  <th>Fecha Inicio</th>
+                                  <th>Total Horas</th>
+                                  <th>Opciones</th>
                               </tr>
                               </thead>
                               <tbody>
@@ -37,19 +44,33 @@
                                   <td>{{$pasantes->telefono}}</td>
                                   <td>{{$pasantes->fecha_inicio}}</td>
                                   <td>{{$pasantes->total_horas}}</td>
-                                  <td>{{$pasantes->created_at}}</td>
                                   <td>
                                     {!!Form::open(['route'=>['pasantes.destroy', $pasantes->id], 'method' => 'DELETE'])!!}
-                                    <a href="{{route('pasantes.edit',$pasantes->id)}}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-                                    <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                                    <a href="{{route('pasantes.edit',$pasantes->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
+                                    <button class="btn btn-success btn-sm"><i class="fa fa-check"></i></button>
                                     {!!Form::close()!!}
                                   </td>       
                               </tr>
                               @endforeach
-                              </tbody>
-                          </table>
-                      </div><!-- /content-panel -->
-                      <div class="text-center">{!!$pasante->render()!!}</div>
-                  </div><!-- /col-md-12 -->
-              </div><!-- /row -->
+                               </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Universidad</th>
+                                <th>Carrera</th>
+                                <th>CI</th>
+                                <th>Turno</th>
+                                <th>Telefono</th>
+                                <th>Fecha Inicio</th>
+                                <th>Total Horas</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div>
+</section><!-- /.content -->
 @stop

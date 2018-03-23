@@ -1,29 +1,33 @@
 @extends('panel.template')
-
 @section('contenido')           
-                  @if(\Session::has('message'))
-                      @include('alerts.message')
-                  @endif  
-              <div class="row mt">
-                  <div class="col-md-12">
-                      <div class="content-panel">
-                          <table class="table table-striped table-advance table-hover">
-                            <h4 class="text-center"><i class="fa fa-user"></i>Usuarios Registrados</h4>
-                            <hr>
-                              <thead>
+@if(\Session::has('message'))
+    @include('alerts.message')
+@endif  
+<section class="content">
+        <div class="col-xs-12">                            
+            <div class="box">
+                <div class="box-header">
+                    <h2 class="text-center">Lista de Usuarios</h2>
+                </div><!-- /.box-header -->
+                <div class="col-xs-12 col-md-6" style="padding-left: 920px;">
+                    <a href="{{route('usuarios.create')}}">
+                        <button type="button" class="btn btn-success"><i class="fa fa-plus"></i>  &nbsp;&nbsp;&nbsp;&nbsp; Agregar</button>
+                    </a>
+                </div><br><br><br>
+                <div class="box-body table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
 
                                <tr>
-                                  <th><i class="fa fa-edit"></i> Nombre</th>
-                                  <th><i class="fa fa-edit"></i> Apellido Paterno</th>
-                                  <th><i class="fa fa-edit"></i> Apellido Materno</th>
-                                  <th><i class="fa fa-edit"></i> Carnet de Identidad</th>
-                                  <th><i class="fa fa-edit"></i> Email</th>
-                                  <th><i class="fa fa-edit"></i> Carrera</th>
-                                  <th><i class="fa fa-edit"></i> Turno</th>
-                                  <th><i class="fa fa-edit"></i> Telefono</th>
-                                  <th><i class="fa fa-edit"></i> Imagen</th>
-                                  <th><i class="fa fa-edit"></i> Fecha Registro</th>
-                                  <th><i class="fa fa-edit"></i> Acciones</th>
+                                  <th>Nombre</th>
+                                  <th>Apellido Paterno</th>
+                                  <th>Carnet de Identidad</th>
+                                  <th>Carrera</th>
+                                  <th>Turno</th>
+                                  <th>Telefono</th>
+                                  <th>Imagen</th>
+                                  <th>Fecha Registro</th>
+                                  <th>Acciones</th>
                               </tr>
                               </thead>
                               <tbody>
@@ -31,9 +35,7 @@
                               <tr> 
                                   <td>{{$usuario->nombre}}</td>
                                   <td>{{$usuario->apellidoP}}</td>
-                                  <td>{{$usuario->apellidoM}}</td>
                                   <td>{{$usuario->ci}}</td>
-                                  <td>{{$usuario->email}}</td>
                                   <td>{{$usuario->carrera_id}}</td>
                                   <td>{{$usuario->turno}}</td>
                                   <td>{{$usuario->telefono}}</td>
@@ -41,17 +43,29 @@
                                   <td>{{$usuario->created_at}}</td>
                                   <td>
                                     {!!Form::open(['route'=>['usuarios.destroy', $usuario->id], 'method' => 'DELETE'])!!}
-                                    <a href="{{route('usuarios.edit',$usuario->id)}}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
-                                    <button href="" onclick="return confirm('Eliminar Registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
-                                    <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                                    <a href="{{route('usuarios.edit',$usuario->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>    
+                                    <button class="btn btn-success btn-sm"><i class="fa fa-check"></i></button>
                                     {!!Form::close()!!}
                                   </td>       
                               </tr>
                               @endforeach
                               </tbody>
-                          </table>
-                      </div><!-- /content-panel -->
-                      <div class="text-center">{!!$usuarios->render()!!}</div>
-                  </div><!-- /col-md-12 -->
-              </div><!-- /row -->
+                        <tfoot>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Apellido Paterno</th>
+                                <th>Carnet de Identidad</th>
+                                <th>Carrera</th>
+                                <th>Turno</th>
+                                <th>Telefono</th>
+                                <th>Imagen</th>
+                                <th>Fecha Registro</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div>
+</section><!-- /.content -->
 @stop

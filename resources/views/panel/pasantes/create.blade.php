@@ -1,20 +1,19 @@
 @extends('panel.template')
 @section('contenido')
-<h3><i class="fa fa-angle-right"></i> PASANTES</h3>
-<!-- BASIC FORM ELELEMNTS -->
-<div class="row mt">
-	<div class="col-lg-12">
-      <div class="form-panel">
-	  	  <h4 class="mb"><i class="fa fa-angle-right"></i> Formulario Pasante</h4>
-	  	  {{Form::open(['route'=>'pasantes.store','method'=>'POST','class'=>'form-horizontal style-form','files'=>true])}}
-	  	  	  @include('panel.pasantes.form.form')
-	      	  <div class="form-group col-xs-12 col-md-6">
-	      	  	<button type="button" class="btn btn-danger"><i class="fa fa-chevron-circle-left"></i> Cancelar</button>
-	      	  	{{Form::submit('Guardar',['class'=>'btn btn-primary'])}}
-	      	  </div>
-	      	  <div class="form-group"></div>
-	  	  {{Form::close()}}
-	  	  </div>
-	</div><!-- col-lg-12-->      	
-</div><!-- /row -->
+<div class="box box-info col-xs-12 col-md-12">
+    <!-- general form elements -->
+        <div class="box-header">
+            <h3 class="box-title">Agregar nueva pasante</h3>
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        {{Form::open(['route'=>'pasantes.store','method'=>'POST','files'=>true])}} 
+        @include('panel.pasantes.form.form')
+    <div class="box-footer col-md-12 text-center">
+        {{Form::submit('Guardar',['class'=>'btn btn-primary'])}}
+        <a href="{{route('pasantes.index')}}">
+          <button type="button" class="btn btn-danger"><i class="fa fa-close"></i> Cancelar</button>
+        </a>
+    </div>
+    {{Form::close()}}
+</div>
 @stop
