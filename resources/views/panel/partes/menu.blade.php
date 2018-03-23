@@ -61,7 +61,7 @@
             </a>
         </li>
         <li class="">
-            <a href="{{route('categorias.index')}}">
+            <a href="{{route('categoria.index')}}">
                 <i class="fa fa-dashboard"></i> <span>Categoria</span>
             </a>
         </li>

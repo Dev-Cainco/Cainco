@@ -1,8 +1,8 @@
 @extends('panel.template')
 @section('contenido')           
-                  @if(\Session::has('message'))
-                      @include('alerts.message')
-                  @endif  
+@if(\Session::has('message'))
+    @include('alerts.message')
+@endif  
 <section class="content">
         <div class="col-xs-12">                            
             <div class="box">
