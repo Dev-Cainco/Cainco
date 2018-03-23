@@ -1,91 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Dashboard">
-    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+<html class="bg-black">
+    <head>
+        <meta charset="UTF-8">
+        <title>Cainco | Entrar</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        <!-- bootstrap 3.0.2 -->
+        <link href="../../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!-- font Awesome -->
+        <link href="../../css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Theme style -->
+        <link href="../../css/AdminLTE.css" rel="stylesheet" type="text/css" />
 
-    <title>Login</title>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="bg-black">
 
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <!--external css-->
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-        
-    <!-- Custom styles for this template -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/style-responsive.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
-  <body>
-
-      <!-- **********************************************************************************************************************************************************
-      MAIN CONTENT
-      *********************************************************************************************************************************************************** -->
-
-	  <div id="login-page">
-	  	<div class="container">
-            {{Form::open(['route'=>'logueo','class'=>'form-login','method'=>'POST'])}}
-		        <h2 class="form-login-heading">Entra Ahora</h2>
-		        <div class="login-wrap">             
-                    {{Form::email('email',null,['class'=>'form-control','placeholder'=>'Correo','autofocus','require'])}}
-                    <br>
-                    {{Form::password('password',['class'=>'form-control','placeholder'=>'Correo','autofocus','require'])}}
-		            <label class="checkbox">
-		                <span class="pull-right">
-		                    <a data-toggle="modal" href="login.html#myModal"> Olvidaste tu Contraseña?</a>
-		
-		                </span>
-		            </label>
-		            <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> Entrar</button>
-		        </div>
+        <div class="form-box" id="login-box">
+            <div class="header">Entrar Ahora</div>
+            {{Form::open(['route'=>'logueo','method'=>'POST'])}}
+                <div class="body bg-gray">
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="Correo"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="Contraseña"/>
+                    </div>          
+                    <div class="form-group">
+                        <input type="checkbox" name="remember_me"/> Recuerdame
+                    </div>
+                </div>
+                <div class="footer">                                                               
+                    <button type="submit" class="btn bg-olive btn-block">Sign me in</button>  
+                    
+                    <p><a href="#">Olvide mi Contraseña</a></p>
+                </div>
             {{Form::close()}}
-            
-		          <!-- Modal -->
-		          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-		              <div class="modal-dialog">
-		                  <div class="modal-content">
-		                      <div class="modal-header">
-		                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		                          <h4 class="modal-title">Olvidaste tu Contraseña ?</h4>
-		                      </div>
-		                      <div class="modal-body">
-		                          <p>Coloca tu contraseña y te enviaremos un correo para resetear los datos.</p>
-		                          <input type="text" name="email" placeholder="Correo" autocomplete="off" class="form-control placeholder-no-fix">
-		
-		                      </div>
-		                      <div class="modal-footer">
-		                          <button data-dismiss="modal" class="btn btn-default" type="button">Cancelar</button>
-		                          <button class="btn btn-theme" type="button">Enviar</button>
-		                      </div>
-		                  </div>
-		              </div>
-		          </div>
-		          <!-- modal -->
-		
-		     
-	  	</div>
-	  </div>
-
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-
-    <!--BACKSTRETCH-->
-    <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
-    <script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
-    <script>
-        $.backstretch("assets/img/login-bg.jpg", {speed: 500});
-    </script>
+        </div>
 
 
-  </body>
+        <!-- jQuery 2.0.2 -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="../../js/bootstrap.min.js" type="text/javascript"></script>        
+
+    </body>
 </html>
