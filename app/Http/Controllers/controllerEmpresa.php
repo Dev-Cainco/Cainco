@@ -66,7 +66,23 @@ class controllerEmpresa extends Controller
      */
     public function show($id)
     {   
-        //
+        $empresa = Empresa::find($id);
+        if(($empresa->estado) == '1'){
+
+            $empresa->fill([
+                'estado'=>0
+            ]);
+            $empresa->save();
+            return redirect()->route('empresa.index');
+
+        }else{
+
+            $empresa->fill([
+                'estado'=>1
+            ]);
+            $empresa->save();
+            return redirect()->route('empresa.index');
+        }
     }
 
     /**
@@ -114,19 +130,6 @@ class controllerEmpresa extends Controller
      */
     public function destroy($id)
     {
-        $empresa = Empresa::find($id);
-        if($empresa->estado == 1)
-        {
-            $empresa->fill([
-                'estado'=>'0'
-            ]);
-            return redirect()->route('empresa.index');
-        }else
-        {
-            $empresa->fill([
-                'estado'=>'1'
-            ]);
-            return redirect()->route('empresa.index');
-        }
+
     }
 }

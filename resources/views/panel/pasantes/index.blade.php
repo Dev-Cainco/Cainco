@@ -34,7 +34,7 @@
                               <tbody>
                               @foreach($pasante as $pasantes)
                               <tr> 
-                                  <td width="50px"><img src="{{asset('imagen')}}/{{$pasantes->imagen}}" alt="" width="50px"></td> 
+                                  <td width="40px"><img src="{{asset('imagen')}}/{{$pasantes->imagen}}" alt="" width="40px"></td> 
                                   <td>{{$pasantes->nombre}}</td>
                                   <td>{{$pasantes->apellidoP}}</td>
                                   <td>{{$pasantes->universidad_id}}</td>
@@ -45,12 +45,21 @@
                                   <td>{{$pasantes->fecha_inicio}}</td>
                                   <td>{{$pasantes->total_horas}}</td>
                                   <td>
-                                    {!!Form::open(['route'=>['pasantes.destroy', $pasantes->id], 'method' => 'DELETE'])!!}
-                                    <a href="{{route('pasantes.edit',$pasantes->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
-                                    <button class="btn btn-success btn-sm"><i class="fa fa-check"></i></button>
-                                    {!!Form::close()!!}
+                                    <a href="#" data-target="#modal-detalle-{{$pasantes->id}}" data-toggle="modal" class="btn btn-warning btn-sm"><i class="fa fa-eye"></i>
+                                    </a>
+                                    <a href="{{route('pasantes.edit',$pasantes->id)}}" class="btn btn-success btn-sm"><i class="fa fa-pencil"></i></a>
+                                    @if(($pasantes->estado) == '1')
+                                    <a href="{{route('pasantes.show',$pasantes->id)}}"> 
+                                    <button class="btn btn-danger btn-sm"><i class="fa fa-close"></i></button>
+                                    </a>
+                                    @else
+                                    <a href="{{route('pasantes.show',$pasantes->id)}}"> 
+                                    <button class="btn btn-primary btn-sm"><i class="fa fa-check"></i></button>
+                                    </a> 
+                                    @endif
                                   </td>       
                               </tr>
+                              @include('panel.pasantes.show')
                               @endforeach
                                </tbody>
                         <tfoot>

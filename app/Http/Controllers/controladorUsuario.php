@@ -58,7 +58,21 @@ class controladorUsuario extends Controller
 
     public function show($id)
     {
-        //
+        $usuario = User::find($id);
+
+        if(($usuario->estado) == '1'){
+            $usuario->fill([
+                'estado'=>0
+            ]);
+            $usuario->save();
+            return redirect()->route('usuarios.index');
+        }else{
+            $usuario->fill([
+                'estado'=>1
+            ]);
+            $usuario->save();
+            return redirect()->route('usuarios.index');
+        }
     }
 
     /**

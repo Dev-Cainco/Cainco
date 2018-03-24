@@ -19,10 +19,12 @@
                         <thead>
 
                                <tr>
-                                  <th>Nombre</th>
-                                  <th>Apellido Paterno</th>
-                                  <th>Apellido Materno</th>
                                   <th>Imagen</th>
+                                  <th>Nombre</th>
+                                  <th>Apellidos</th>
+                                  <th>Carnet de Identidad</th>
+                                  <th>Turno</th>
+                                  <th>Carrera</th>
                                   <th>Fecha Registro</th>
                                   <th>Acciones</th>
                               </tr>
@@ -30,19 +32,26 @@
                               <tbody>
                               @foreach($usuarios as $usuario)
                               <tr> 
-                                  <td>{{$usuario->nombre}}</td>
-                                  <td>{{$usuario->apellidoP}}</td>
-                                  <td>{{$usuario->apellidoM}}</td>
                                   <td width="50px"><img src="{{public_path('local')}}/{{$usuario->imagen}}" alt="" width="50px"></td> 
+                                  <td>{{$usuario->nombre}}</td>
+                                  <td>{{$usuario->apellidoP .' '. $usuario->apellidoM}}</td>
+                                  <td>{{$usuario->ci}}</td>
+                                  <td>{{$usuario->turno}}</td>
+                                  <td>{{$usuario->carrera_id}}</td>
                                   <td>{{$usuario->created_at}}</td>
                                   <td>
-                                    <a href="#" data-target="#modal-detalle-{{$usuario->id}}" data-toggle="modal" class="btn btn-warning btn-xs">
-                                        <i class="fa fa-eye"></i></a>
-                                    {!!Form::open(['route'=>['usuarios.destroy', $usuario->id], 'method' => 'DELETE'])!!}
-                                    <a href="{{route('usuarios.edit',$usuario->id)}}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>    
-                                    <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                   
-                                    {!!Form::close()!!}
+                                    <a href="#" data-target="#modal-detalle-{{$usuario->id}}" data-toggle="modal" class="btn btn-warning btn-sm"><i class="fa fa-eye"></i></a>
+                                    <a href="{{route('usuarios.edit',$usuario->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i>
+                                    </a>
+                                    @if(($usuario->estado) == '1') 
+                                    <a href="{{route('usuarios.show',$usuario->id)}}">   
+                                    <button class="btn btn-danger btn-sm"><i class="fa fa-close"></i></button>
+                                    </a>
+                                    @else
+                                    <a href="{{route('usuarios.show',$usuario->id)}}">   
+                                    <button class="btn btn-success btn-sm"><i class="fa fa-check"></i></button>
+                                    </a>
+                                    @endif
                                   </td>       
                               </tr>
                               @include('panel.usuario.show')
@@ -50,12 +59,14 @@
                               </tbody>
                         <tfoot>
                             <tr>
+                                <th>Imagen</th>
                                 <th>Nombre</th>
-                                  <th>Apellido Paterno</th>
-                                  <th>Apellido Materno</th>
-                                  <th>Imagen</th>
-                                  <th>Fecha Registro</th>
-                                  <th>Acciones</th>
+                                <th>Apellidos</th>
+                                <th>Carnet de Identidad</th>
+                                <th>Turno</th>
+                                <th>Carrera</th>
+                                <th>Fecha Registro</th>
+                                <th>Acciones</th>
                             </tr>
                         </tfoot>
                     </table>

@@ -25,6 +25,7 @@ class CreateEmpresasTable extends Migration
             $table->string('direccion');
             $table->string('imagen');
             $table->string('sitio_web');
+            $table->boolean('estado');
             $table->timestamps();
             $table->SoftDeletes();
             $table->foreign('usuario_id')->references('id')->on('users');

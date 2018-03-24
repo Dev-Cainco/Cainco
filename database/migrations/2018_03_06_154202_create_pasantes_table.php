@@ -28,6 +28,7 @@ class CreatePasantesTable extends Migration
             $table->string('imagen');
             $table->date('fecha_inicio');
             $table->time('total_horas');
+            $table->boolean('estado');
             $table->timestamps();
             $table->SoftDeletes();
             $table->foreign('universidad_id')->references('id')->on('universidads');

@@ -68,7 +68,20 @@ class controllerPasantes extends Controller
      */
     public function show($id)
     {
-        //
+        $pasante = Pasante::find($id);
+        if(($pasante->estado) == '1'){
+            $pasante->fill([
+                'estado'=>0
+            ]);
+            $pasante->save();
+            return redirect()->route('pasantes.index');
+        }else{
+            $pasante->fill([
+                'estado'=>1
+            ]);
+            $pasante->save();
+            return redirect()->route('pasantes.index');            
+        }
     }
 
     /**
