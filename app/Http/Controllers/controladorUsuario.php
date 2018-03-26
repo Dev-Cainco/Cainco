@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Carrera;
+use Datatables;
 class controladorUsuario extends Controller
 {
     /**
@@ -15,9 +16,19 @@ class controladorUsuario extends Controller
     public function index()
     {
         $usuarios=User::orderBy('id','desc')->paginate(5);
-        return view('panel.usuario.index',compact('usuarios'));
+        return view('panel.usuario.index');
     }
-
+    public function getUser()
+    {
+        $usuarios=User::all();
+        return Datatables::of($usuarios)
+            ->addColumn('action',function ($usuario){
+                return '<a href="'.$usuario->id.'/edit" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
+            })
+            ->editColumn('id', 'ID: {{$id}}')
+            ->removeColumn('password')
+            ->make(true);
+    }
     /**
      * Show the form for creating a new resource.
      *

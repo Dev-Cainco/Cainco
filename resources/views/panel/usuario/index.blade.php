@@ -15,47 +15,23 @@
                     </a>
                 </div><br><br><br>
                 <div class="box-body table-responsive">
-                    <table class="table table-bordered table-striped">
+                    <table id="users-table" class="table table-bordered table-striped">
                         <thead>
 
                                <tr>
                                   <th>Nombre</th>
                                   <th>Apellido Paterno</th>
-                                  <th>Apellido Materno</th>
-                                  <th>Imagen</th>
-                                  <th>Fecha Registro</th>
-                                  <th>Acciones</th>
+                                  <th>Apellido Materno</th> 
+                                  <th>Editar</th>    
                               </tr>
                               </thead>
                               <tbody>
-                              @foreach($usuarios as $usuario)
-                              <tr> 
-                                  <td>{{$usuario->nombre}}</td>
-                                  <td>{{$usuario->apellidoP}}</td>
-                                  <td>{{$usuario->apellidoM}}</td>
-                                  <td width="50px"><img src="{{public_path('local')}}/{{$usuario->imagen}}" alt="" width="50px"></td> 
-                                  <td>{{$usuario->created_at}}</td>
-                                  <td>
-                                    <a href="#" data-target="#modal-detalle-{{$usuario->id}}" data-toggle="modal" class="btn btn-warning btn-xs">
-                                        <i class="fa fa-eye"></i></a>
-                                    {!!Form::open(['route'=>['usuarios.destroy', $usuario->id], 'method' => 'DELETE'])!!}
-                                    <a href="{{route('usuarios.edit',$usuario->id)}}" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>    
-                                    <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                                   
-                                    {!!Form::close()!!}
-                                  </td>       
-                              </tr>
-                              @include('panel.usuario.show')
-                              @endforeach
                               </tbody>
                         <tfoot>
                             <tr>
                                 <th>Nombre</th>
                                   <th>Apellido Paterno</th>
-                                  <th>Apellido Materno</th>
-                                  <th>Imagen</th>
-                                  <th>Fecha Registro</th>
-                                  <th>Acciones</th>
+                                  <th>Editar</th>
                             </tr>
                         </tfoot>
                     </table>
@@ -63,4 +39,21 @@
             </div><!-- /.box -->
         </div>
 </section><!-- /.content -->
+@stop
+@section('script')
+<script>
+$(function() {
+    $('#users-table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: '{{route('getUser')}}',
+        columns: [
+            { data: 'nombre', name: 'nombre' },
+            { data: 'apellidoP', name: 'apellidoP' },
+            { data: 'apellidoM', name: 'apellidoM' },
+            {data: 'action', name: 'action', orderable: false, searchable: false}
+        ]
+    });
+});
+</script>
 @stop
