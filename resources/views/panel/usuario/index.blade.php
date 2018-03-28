@@ -13,7 +13,7 @@
                     <a href="{{route('usuarios.create')}}">
                         <button type="button" class="btn btn-success"><i class="fa fa-plus"></i>  &nbsp;&nbsp;&nbsp;&nbsp; Agregar</button>
                     </a>
-                </div><br><br><br>
+                </div>
                 <div class="box-body table-responsive">
                     <table id="users-table" class="table table-bordered table-striped">
                         <thead>
@@ -79,6 +79,7 @@
                             </tr>
                         </tfoot>
                     </table>
+                    {!! $dataTable->table() !!}
                 </div><!-- /.box-body -->
             </div><!-- /.box -->
         </div>
@@ -86,18 +87,28 @@
 @stop
 @section('script')
 <script>
-$(function() {
+/*$(function() {
     $('#users-table').DataTable({
-        processing: true,
-        serverSide: true,
+       
+        buttons: [
+            'copy'
+        ],
         ajax: '{{route('getUser')}}',
         columns: [
             { data: 'nombre', name: 'nombre' },
             { data: 'apellidoP', name: 'apellidoP' },
             { data: 'apellidoM', name: 'apellidoM' },
-            {data: 'action', name: 'action', orderable: false, searchable: false}
-        ]
-    });
-});
+            { data: 'action', name: 'action', orderable: false, searchable: false}
+        ],
+        language: {
+             "url": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json",
+        },   
+      
+        });
+    });*/
 </script>
+   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
+<script src="https://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>
+<script src="/vendor/datatables/buttons.server-side.js"></script>
+{!! $dataTable->scripts() !!}
 @stop
