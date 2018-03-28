@@ -1,4 +1,5 @@
 <?php
+Route::get('/usuario','controladorUsuario@getUser')->name('getUser');
 Route::resource('panel/pasantes','controllerPasantes');
 Route::resource('panel/carrera','controladorCarrera');
 Route::resource('panel/categoria','controladorCategoria');

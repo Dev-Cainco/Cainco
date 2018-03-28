@@ -11,10 +11,14 @@
         <!-- Ionicons -->
         <link href="{{asset('css/ionicons.min.css')}}" rel="stylesheet" type="text/css" />
 
-        <link href="{{asset('css/datatables/dataTables.bootstrap.css')}}" rel="stylesheet" type="text/css" />
+       
 
         <!-- Theme style -->
         <link href="{{asset('css/AdminLTE.css')}}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+  
+       
+        
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -65,17 +69,14 @@
         <script src="{{asset('js/bootstrap.min.js')}}" type="text/javascript"></script>
         <!-- AdminLTE App -->
         <script src="{{asset('js/AdminLTE/app.js')}}" type="text/javascript"></script>
-
-        <!-- DATA TABES SCRIPT -->
-        <script src="{{asset('js/plugins/datatables/jquery.dataTables.js')}}" type="text/javascript"></script>
-        <script src="{{asset('js/plugins/datatables/dataTables.bootstrap.js')}}" type="text/javascript"></script>
-
+        
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
         <!-- Page script -->
         <!-- page script -->
         <script type="text/javascript">
             $(function() {
-                $("#example1").dataTable();
-                $('#example2').dataTable({
+                $("#example1").DataTable();
+                $('#example2').DataTable({
                     "bPaginate": true,
                     "bLengthChange": false,
                     "bFilter": false,
@@ -85,5 +86,6 @@
                 });
             });
         </script>
+        @yield('script')
     </body>
 </html>
